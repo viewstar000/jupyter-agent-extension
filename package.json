@@ -1,9 +1,10 @@
 {
   "name": "jupyter-agent-extension",
-  "displayName": "jupyter-agent-extension",
-  "description": "",
+  "displayName": "Jupyter Agent Extension",
+  "description": "VSCode Extension for jupyter-agent",
+  "publisher": "viewstar000",
   "repository": "https://github.com/viewstar000/jupyter-agent-extension",
-  "version": "0.0.1",
+  "version": "2025.6.101",
   "engines": {
     "vscode": "^1.101.0"
   },

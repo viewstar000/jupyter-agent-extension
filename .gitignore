@@ -137,6 +137,9 @@ dist
 
 # Project
 out
+tmp
+var
 dist
 node_modules
 .vscode-test/
+*.vsix
