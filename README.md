@@ -36,11 +36,10 @@ pip install jupyter-agent
 %config BotMagics.default_model_name = 'qwen3-30b-a3b' 
 %config BotMagics.coding_model_name = 'devstral-small-2505-mlx'
 
-# 设置当前Notebook的路径，由于vscode中运行里无法自动获取到该路径，需要手工指定
-%config BotMagics.notebook_path = globals()["__vsc_ipynb_file__"]
-
-# 设置是否支持保存任务数据到Metadata中，只有安装了jupyter-agent-extension的Vscode支持
+# 设置是否支持保存任务数据到Metadata中，权在Vscode安装jupyter-agent-extension后支持
 %config BotMagics.support_save_meta = True
+# 设置运行环境是否设置单元格内容，权在Vscode中安装jupyter-agent-extension后支持
+%config BotMagics.support_set_cell_content = True
 ```
 
 接下来就可以使用`%%bot`指令进行任务规则与代码生成的工作了。
@@ -112,11 +111,11 @@ Create or open a Notebook in Vscode, create a new cell, enter and execute the fo
 %config BotMagics.default_model_name = 'qwen3-30b-a3b' 
 %config BotMagics.coding_model_name = 'devstral-small-2505-mlx'
 
-# Set the path of the current Notebook, which cannot be automatically obtained in vscode when running, you need to manually specify
-%config BotMagics.notebook_path = globals()["__vsc_ipynb_file__"]
 
 # Set whether to save task data to Metadata, only Vscode installed with jupyter-agent-extension supports
 %config BotMagics.support_save_meta = True
+# Set whether to set cell content, only Vscode installed with jupyter-agent-extension supports
+%config BotMagics.support_set_cell_content = True
 ```
 
 Now, you can use the `%%bot` command to work on task rules and code generation.
