@@ -47,6 +47,7 @@ export function activate(context: vscode.ExtensionContext) {
         });
         if (nbEditList.length > 0) {
             const edit = new vscode.WorkspaceEdit();
+            nbEditList.reverse(); // vscode expects edits to be in reverse order
             edit.set(e.notebook.uri, nbEditList);
             vscode.workspace.applyEdit(edit);
         }

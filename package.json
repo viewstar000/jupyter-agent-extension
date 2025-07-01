@@ -4,7 +4,7 @@
   "description": "VSCode Extension for jupyter-agent",
   "publisher": "viewstar000",
   "repository": "https://github.com/viewstar000/jupyter-agent-extension",
-  "version": "2025.6.102",
+  "version": "2025.7.100",
   "engines": {
     "vscode": "^1.101.0"
   },
