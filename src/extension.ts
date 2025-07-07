@@ -118,14 +118,24 @@ function handleAgentAction(
                         if (!updateMetadata) {
                             updateMetadata = JSON.parse(JSON.stringify(change.cell.metadata));
                         }
+
                         if (action.action === 'set_cell_content') {
-                            let newCell = new vscode.NotebookCellData(
-                                action.params.type === 'code'
-                                    ? vscode.NotebookCellKind.Code
-                                    : vscode.NotebookCellKind.Markup,
-                                action.params.source,
-                                action.params.type === 'code' ? 'python' : 'markdown'
-                            );
+                            let cellKind: vscode.NotebookCellKind;
+                            let language: string;
+                            if (action.params.type === 'code') {
+                                cellKind = vscode.NotebookCellKind.Code;
+                                language = 'python';
+                            } else if (action.params.type === 'markdown') {
+                                cellKind = vscode.NotebookCellKind.Markup;
+                                language = 'markdown';
+                            } else if (action.params.type === 'raw') {
+                                cellKind = vscode.NotebookCellKind.Code;
+                                language = 'raw';
+                            } else {
+                                console.log('JAE.nbChanged.cell.outs.actions.unknown type', action.params.type);
+                                return;
+                            }
+                            let newCell = new vscode.NotebookCellData(cellKind, action.params.source, language);
                             newCell.metadata = { metadata: action.params.metadata };
                             newCell.metadata.metadata.tags = action.params.tags;
                             if (action.params.index === 0) {
